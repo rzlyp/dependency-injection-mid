@@ -1,0 +1,23 @@
+1. What is the advantage of having initialization in configuration file? 
+more simple, we just call what we needed in config.json
+
+2. What is this pattern called? 
+I think, it is dependency injection.
+
+3. If you created a DBStore with path components/store/db_store what do you need to do to swap the implementation. 
+Just need to change every variable/object with name store to DBStore, and changes the store directory to omponents/store/db_store.js.
+
+4. Define steps to be done if you want to have the configuration file definable in environment variable like this: 
+{
+    "components": {
+        "store": {
+            "file": "{$WAREHOUSE_SERVICE_STORE_COMPONENT}",
+            "dependencies": []
+        },
+        ...
+    }
+}
+
+//bash
+$ export WAREHOUSE_SERVICE_STORE_COMPONENT=components/store/db_store.js
+$ node start.js

@@ -1,0 +1,34 @@
+{
+    "components": {
+      "store": {
+        "file": "components/store/memory_store.js",
+        "depedencies": []
+      },
+      "convRepo": {
+        "file": "components/repo/conversation_repo.js",
+        "depedencies": [
+          "store"
+        ]
+      },
+      "userRepo": {
+        "file": "components/repo/user_repo.js",
+        "depedencies": [
+          "store"
+        ]
+      },
+      "server": {
+        "file": "components/server/api_server.js",
+        "depedencies": [
+          "convRepo",
+          "userRepo"
+        ]
+      }
+    },
+    "main": {
+      "component": "server",
+      "method": "start",
+      "args": [
+        5000
+      ]
+    }
+  }

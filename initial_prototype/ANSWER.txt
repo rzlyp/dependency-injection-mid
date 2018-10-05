@@ -1,0 +1,8 @@
+Why the type of store is Store and not Memstore ? 
+Because the Memstore module exports the Store as a module, therefore to access the object it must use the Store.
+
+
+What design patterns do you recognize here? 
+I think, it was singleton pattern. beacuse This pattern involves a single class which is responsible to create an object while making sure that only single object gets created.
+source :
+https://www.tutorialspoint.com/design_pattern/singleton_pattern.htm

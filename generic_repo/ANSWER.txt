@@ -1,0 +1,30 @@
+1. What is the benefit of this change? 
+We can use the module so many time without creating new files
+
+2. What should I change if I want to add new path /tokens with following fields: string token; int expire; 
+The first thing that we should to do is create the component file, and add the configuration like this.
+{
+      "components": {
+          ...
+          "token": {
+              "file": "components/token/token.js",
+              "depedencies": ["store"],
+              "options": {
+                 "schema": {
+                     "token": "string",
+                     "expire": "int"
+                 }
+              }
+          },
+          "server": {
+             "file": "components/server/api_server.js",
+             "depedencies": ["convRepo", "userRepo", "token"],
+             "options": {
+                 "routes": ["/conversations", "/users", "/token"]
+             }
+          }
+      },
+      ...
+   }
+
+   after we make this config, we need to add new constructor varibale that called token to pass it into the api_server.js module.
